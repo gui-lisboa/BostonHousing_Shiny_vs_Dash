@@ -1,0 +1,14 @@
+name: BostonHousing
+title: BostonHousing
+username:
+account: guilisboa
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5363662
+bundleId: 5402159
+url: https://guilisboa.shinyapps.io/BostonHousing/
+when: 1640200275.64918
+lastSyncTime: 1640200275.64918
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .vscode/settings.json|__pycache__/app.cpython-310.pyc|app.py|README.md
