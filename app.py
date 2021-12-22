@@ -70,6 +70,7 @@ principal = html.Div(
 titulo = html.H1("Boston Housing - Painel criado com Dash", className="row")
 painel = html.Div([barra_lateral, principal], className="row")
 app.layout = html.Div([titulo, painel], style={"padding-left": "10px", "height": "100vh"})
+server = app.server
 
 @app.callback(
     Output("graficoResumo", "figure"),
