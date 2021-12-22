@@ -1,8 +1,6 @@
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
-from numpy import dtype
-from sklearn.datasets import load_boston
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
@@ -19,13 +17,12 @@ BARRA_LATERAL_SHINY = {
     "box-shadow": "inset 0 1px 1px rgb(0 0 0 / 5%)",
 }
 
-boston_dataset = load_boston()
-colunas = [coluna.lower() for coluna in boston_dataset.feature_names]
-boston_housing = pd.DataFrame(boston_dataset.data, columns=colunas)
-boston_housing["medv"] = boston_dataset.target
-
 with open("./boston-housing-meta.json", "r") as json_file:
     boston_housing_metadata = json.load(json_file)
+
+data_url = "https://raw.githubusercontent.com/scikit-learn/scikit-learn/0d378913be6d7e485b792ea36e9268be31ed52d0/sklearn/datasets/data/boston_house_prices.csv"
+boston_housing = pd.read_csv(data_url, skiprows=2)
+boston_housing.columns = boston_housing_metadata.keys()
 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
